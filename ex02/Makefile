@@ -1,14 +1,14 @@
 CPP = c++
 
-CFLAGS  = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = polymorphism
+NAME = abstract
 
-SRCS =	$(shell find -name '*.cpp')
+SRCS = $(shell find -name '*.cpp')
 
 OBJ_DIR = build
 
-OBJS =	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
+OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
@@ -21,7 +21,7 @@ $(OBJ_DIR)/%.o: %.cpp
 
 clean:
 	rm -rf $(OBJ_DIR)
-	
+
 fclean: clean
 	rm -f $(NAME)
 

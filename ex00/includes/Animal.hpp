@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 04:44:40 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 05:11:54 by gustavo-lin      ###   ########.fr       */
+/*   Created: 2026/03/19 16:18:23 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:18:24 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,23 @@
 class Animal
 {
     public:    
-        Animal();
+        Animal(void);
         Animal(const std::string& name);
         Animal(const Animal& other);
         Animal& operator=(const Animal& other);
         virtual ~Animal();
         
         virtual void makeSound() const = 0;
-        std::string getType() const;
-        std::string getName() const;
+
+        const std::string& getType() const;
+        const std::string& getName() const;
+
+        void setType(const std::string& type);
+        void setName(const std::string& name);
+
     protected:
         std::string name;
-        std::string type;  
+        std::string type;
 };
 
 #endif

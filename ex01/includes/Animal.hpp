@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 16:18:30 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 16:18:31 by gustavo-lin      ###   ########.fr       */
+/*   Created: 2026/03/19 16:45:34 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:45:35 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 
-class WrongAnimal
+class Animal
 {
-    public:    
-        WrongAnimal(void);
-        WrongAnimal(const std::string& name);
-        WrongAnimal(const WrongAnimal& other);
-        WrongAnimal& operator=(const WrongAnimal& other);
-        ~WrongAnimal();
-        
-        void makeSound() const;
+    public:
+        Animal(void);
+        Animal(const std::string& name);
+        Animal(const Animal& other);
+        Animal& operator=(const Animal& other);
+        virtual ~Animal();
+
+        virtual void makeSound() const = 0;
 
         const std::string& getType() const;
         const std::string& getName() const;

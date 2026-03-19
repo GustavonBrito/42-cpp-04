@@ -5,39 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 16:18:37 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 16:18:38 by gustavo-lin      ###   ########.fr       */
+/*   Created: 2026/03/19 16:45:54 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:45:55 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cat.hpp"
 
-Cat::Cat(void) : Animal() {
+Cat::Cat(void) : Animal()
+{
     this->type = "Cat";
+    this->brain = new Brain();
     std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat::Cat(const std::string& name) : Animal(name) {
+Cat::Cat(const std::string& name) : Animal(name)
+{
     this->type = "Cat";
+    this->brain = new Brain();
     std::cout << "Cat constructor called with name: " << this->name << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other) {
+Cat::Cat(const Cat& other) : Animal(other)
+{
     this->type = "Cat";
+    this->brain = new Brain(*other.brain);
     std::cout << "Cat copy constructor called for: " << this->name << std::endl;
 }
 
-Cat& Cat::operator=(const Cat& other) {
+Cat& Cat::operator=(const Cat& other)
+{
     Animal::operator=(other);
+    if (this->brain)
+        delete this->brain;
+    this->brain = new Brain(*other.brain);
     this->type = "Cat";
     std::cout << "Cat copy assignment operator called" << std::endl;
     return *this;
 }
 
-Cat::~Cat() {
+Cat::~Cat()
+{
+    delete this->brain;
     std::cout << "Cat destructor called" << std::endl;
 }
 
-void Cat::makeSound() const {
+void Cat::makeSound() const
+{
     std::cout << "Meow! Meow!" << std::endl;
+}
+
+Brain* Cat::getBrain(void) const
+{
+    return this->brain;
 }

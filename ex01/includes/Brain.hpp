@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 16:18:28 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 16:18:29 by gustavo-lin      ###   ########.fr       */
+/*   Created: 2026/03/19 16:45:36 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:45:37 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <iostream>
+#include <string>
 
-class Dog : public Animal
+class Brain
 {
-    public:    
-        Dog(void);
-        Dog(const std::string& name);
-        Dog(const Dog& other);
-        Dog& operator=(const Dog& other);
-        virtual ~Dog();
+    public:
+        Brain(void);
+        Brain(const Brain& other);
+        Brain& operator=(const Brain& other);
+        ~Brain();
 
-        virtual void makeSound() const;
+        void setIdea(int index, const std::string& idea);
+        const std::string& getIdea(int index) const;
 
+    private:
+        std::string ideas[100];
 };
 
 #endif

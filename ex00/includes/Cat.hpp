@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 04:49:10 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 05:16:41 by gustavo-lin      ###   ########.fr       */
+/*   Created: 2026/03/19 16:18:25 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:18:26 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@
 
 class Cat : public Animal
 {
-    
     public:    
+        Cat(void);
+        Cat(const std::string& name);
+        Cat(const Cat& other);
+        Cat& operator=(const Cat& other);
+        virtual ~Cat();
 
-    private:   
+        virtual void makeSound() const;
+
+    private:
      
 };
 

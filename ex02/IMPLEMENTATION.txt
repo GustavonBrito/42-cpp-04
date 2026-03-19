@@ -1,0 +1,82 @@
+Exercise 02 - Abstract Class
+Implementation Summary
+
+KEY CHANGE FROM EX01 TO EX02:
+================================
+The Animal class has been renamed to AAnimal (with 'A' prefix for Abstract).
+The pure virtual function makeSound() ensures AAnimal is abstract and cannot be instantiated.
+
+FILES CREATED:
+- includes/AAnimal.hpp (abstract base class)
+- includes/Dog.hpp (concrete derived class)
+- includes/Cat.hpp (concrete derived class)
+- includes/Brain.hpp (supporting class)
+- src/AAnimal.cpp
+- src/Dog.cpp
+- src/Cat.cpp
+- src/Brain.cpp
+- main.cpp (comprehensive tests)
+- Makefile
+
+KEY FEATURES IMPLEMENTED:
+
+1. ABSTRACT AANIMAL CLASS
+   - Pure virtual method: virtual void makeSound() const = 0;
+   - Cannot be instantiated directly (compile-time enforcement)
+   - Can be used as a base class and for pointers/references
+   - All other functionality preserved from Animal class
+
+2. DOG AND CAT CLASSES
+   - Inherit from AAnimal (not Animal)
+   - Must implement the pure virtual makeSound() method
+   - Retain all functionality from ex01
+   - Brain* attribute with deep copy semantics
+   - Full Rule of Five (constructors, assignment, destructor)
+
+3. POLYMORPHISM WITH ABSTRACT TYPES
+   - Can create pointers to AAnimal
+   - Pointers/references can point to Dog or Cat objects
+   - Virtual dispatch ensures correct method is called
+   - Demonstrates proper OOP design
+
+4. COMPREHENSIVE TESTS (10 TESTS)
+   - TEST 1: Cannot instantiate AAnimal (abstract class enforcement)
+   - TEST 2: Can instantiate Dog and Cat
+   - TEST 3: Array of AAnimal pointers
+   - TEST 4: Deep copy for Dog
+   - TEST 5: Deep copy for Cat
+   - TEST 6: Dog assignment operator
+   - TEST 7: Cat assignment operator
+   - TEST 8: Polymorphism with AAnimal base class
+   - TEST 9: Abstract class enforcement explanation
+   - TEST 10: Completion message
+
+COMPILATION AND VERIFICATION:
+✅ Compiles with -Wall -Wextra -Werror -std=c++98
+✅ All tests pass successfully
+✅ Zero memory leaks detected by valgrind
+✅ Deep copy semantics working correctly
+✅ Abstract class enforcement at compile-time
+
+WHY THIS MATTERS:
+- Prevents instantiation of incomplete types
+- Enforces contract that derived classes must implement certain methods
+- Makes code intent clear (this is an interface/abstract type)
+- Improves type safety
+- Follows proper object-oriented design principles
+
+USAGE:
+make       - Compile the program
+make clean - Clean object files
+make fclean - Clean everything including executable
+make re    - Clean and recompile
+./abstract - Run the program
+
+ERROR HANDLING:
+If you try to instantiate AAnimal directly:
+    AAnimal a;                  // Compile error
+    AAnimal* ptr = new AAnimal(); // Compile error
+
+You get:
+    error: cannot allocate an object of abstract type 'AAnimal'
+    note: 'AAnimal' has pure virtual function 'virtual void AAnimal::makeSound() const'

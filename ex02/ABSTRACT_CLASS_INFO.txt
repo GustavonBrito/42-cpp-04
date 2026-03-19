@@ -1,0 +1,24 @@
+This demonstrates the abstract class enforcement.
+
+If you try to uncomment any of these lines in main.cpp, the code will NOT compile:
+
+    // AAnimal animal;              // ERROR: Cannot instantiate abstract class
+    // AAnimal* ptr = new AAnimal(); // ERROR: Cannot instantiate abstract class
+
+Compilation error example:
+    error: cannot allocate an object of abstract type 'AAnimal'
+    note: because the following virtual functions are pure within 'AAnimal':
+    note:   'virtual void AAnimal::makeSound() const'
+
+This enforces type safety and prevents accidental use of incomplete types.
+
+The AAnimal class is abstract because it declares:
+    virtual void makeSound() const = 0;
+
+Any pure virtual function (= 0) makes the class abstract.
+
+Benefits:
+- Prevents instantiation of incomplete/interface classes
+- Forces derived classes to implement all pure virtual functions
+- Provides compile-time type checking
+- Makes code intent clear (this is an interface, not a concrete type)
