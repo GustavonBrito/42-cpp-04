@@ -1,0 +1,1309 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:39 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:23:31 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Dog.hpp"
+
+Dog::Dog(void) : Animal() {
+    this->type = "Dog";
+    std::cout << "Dog default constructor called" << std::endl;
+}
+
+Dog::Dog(const std::string& name) : Animal(name) {
+    this->type = "Dog";
+    std::cout << "Dog constructor called with name: " << this->name << std::endl;
+}
+
+Dog::Dog(const Dog& other) : Animal(other) {
+    this->type = "Dog";
+    std::cout << "Dog copy constructor called for: " << this->name << std::endl;
+}
+
+Dog& Dog::operator=(const Dog& other) {
+    if (this != &other)
+    {
+        Animal::operator=(other);
+        this->type = "Dog";   
+    }
+    std::cout << "Dog copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Dog::~Dog() {
+    std::cout << "Dog destructor called" << std::endl;
+}
+
+void Dog::makeSound() const {
+    std::cout << "Woof! Woof!" << std::endl;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:41 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:18:42 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/WrongAnimal.hpp"
+
+WrongAnimal::WrongAnimal(void) : name(""), type("") {
+    std::cout << "WrongAnimal default constructor called" << std::endl;
+}
+
+WrongAnimal::WrongAnimal(const std::string& name) : name(name), type("") 
+{
+    std::cout << "WrongAnimal constructor called with name: " << this->name << std::endl;
+}
+
+WrongAnimal::WrongAnimal(const WrongAnimal& other) : name(other.name), type(other.type) {
+    std::cout << "WrongAnimal copy constructor called for: " << this->name << std::endl;
+}
+
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
+    if (this != &other) {
+        this->name = other.name;
+        this->type = other.type;
+    }
+    std::cout << "WrongAnimal copy assignment operator called" << std::endl;
+    return *this;
+}
+
+WrongAnimal::~WrongAnimal() {
+    std::cout << "WrongAnimal destructor called" << std::endl;
+}
+
+const std::string& WrongAnimal::getName() const {
+    return this->name;
+}
+
+void WrongAnimal::setName(const std::string& name) {
+    this->name = name;
+}
+
+const std::string& WrongAnimal::getType() const {
+    return this->type;
+}
+
+void WrongAnimal::setType(const std::string& type) {
+    this->type = type;
+}
+
+void WrongAnimal::makeSound() const {
+    std::cout << "Some generic wrong animal sound..." << std::endl;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:35 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 18:13:13 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Animal.hpp"
+
+Animal::Animal(void) : name(""), type("") {
+    std::cout << "Animal default constructor called" << std::endl;
+}
+
+Animal::Animal(const std::string& name) : name(name), type("") 
+{
+    std::cout << "Animal constructor called with name: " << this->name << std::endl;
+}
+
+Animal::Animal(const Animal& other) : name(other.name), type(other.type) {
+    std::cout << "Animal copy constructor called for: " << this->name << std::endl;
+}
+
+Animal& Animal::operator=(const Animal& other) {
+    if (this != &other) {
+        this->name = other.name;
+        this->type = other.type;
+    }
+    std::cout << "Animal copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Animal::~Animal() {
+    std::cout << "Animal destructor called" << std::endl;
+}
+
+void Animal::makeSound(void) const
+{
+    std::cout << "Generic sound" << std::endl;
+}
+
+const std::string& Animal::getName() const {
+    return this->name;
+}
+
+void Animal::setName(const std::string& name) {
+    this->name = name;
+}
+
+const std::string& Animal::getType() const {
+    return this->type;
+}
+
+void Animal::setType(const std::string& type) {
+    this->type = type;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:37 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:20:35 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Cat.hpp"
+
+Cat::Cat(void) : Animal() {
+    this->type = "Cat";
+    std::cout << "Cat default constructor called" << std::endl;
+}
+
+Cat::Cat(const std::string& name) : Animal(name) {
+    this->type = "Cat";
+    std::cout << "Cat constructor called with name: " << this->name << std::endl;
+}
+
+Cat::Cat(const Cat& other) : Animal(other) {
+    this->type = "Cat";
+    std::cout << "Cat copy constructor called for: " << this->name << std::endl;
+}
+
+Cat& Cat::operator=(const Cat& other) {
+    if (this != &other)
+    {
+        Animal::operator=(other);
+        this->type = "Cat";
+    }
+    std::cout << "Cat copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Cat::~Cat() {
+    std::cout << "Cat destructor called" << std::endl;
+}
+
+void Cat::makeSound() const {
+    std::cout << "Meow! Meow!" << std::endl;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:43 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:26:15 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/WrongCat.hpp"
+
+WrongCat::WrongCat(void) : WrongAnimal() {
+    this->type = "WrongCat";
+    std::cout << "WrongCat default constructor called" << std::endl;
+}
+
+WrongCat::WrongCat(const std::string& name) : WrongAnimal(name) {
+    this->type = "WrongCat";
+    std::cout << "WrongCat constructor called with name: " << this->name << std::endl;
+}
+
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
+    this->type = "WrongCat";
+    std::cout << "WrongCat copy constructor called for: " << this->name << std::endl;
+}
+
+WrongCat& WrongCat::operator=(const WrongCat& other) {
+    if (this != &other)
+    {
+        WrongAnimal::operator=(other);
+        this->type = "WrongCat";
+    }
+    std::cout << "WrongCat copy assignment operator called" << std::endl;
+    return *this;
+}
+
+WrongCat::~WrongCat() {
+    std::cout << "WrongCat destructor called" << std::endl;
+}
+
+void WrongCat::makeSound() const {
+    std::cout << "Wrong Cat says: Meow! Meow!" << std::endl;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:47 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:03:01 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "includes/Dog.hpp"
+#include "includes/Cat.hpp"
+#include "includes/WrongCat.hpp"
+#include "includes/WrongAnimal.hpp"
+
+int main()
+{
+    const WrongAnimal* meta = new WrongAnimal();
+    const Animal* j = new Dog();
+    const WrongAnimal* i = new WrongCat();
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    i->makeSound();
+    j->makeSound();
+    meta->makeSound();
+    delete meta;
+    delete j;
+    delete i;
+    return 0;
+}/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:25 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:18:26 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CAT_HPP
+#define CAT_HPP
+
+#include "Animal.hpp"
+
+class Cat : public Animal
+{
+    public:    
+        Cat(void);
+        Cat(const std::string& name);
+        Cat(const Cat& other);
+        Cat& operator=(const Cat& other);
+        virtual ~Cat();
+
+        virtual void makeSound() const;
+
+    private:
+     
+};
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:30 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:18:31 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
+
+#include <iostream>
+
+class WrongAnimal
+{
+    public:    
+        WrongAnimal(void);
+        WrongAnimal(const std::string& name);
+        WrongAnimal(const WrongAnimal& other);
+        WrongAnimal& operator=(const WrongAnimal& other);
+        ~WrongAnimal();
+        
+        void makeSound() const;
+
+        const std::string& getType() const;
+        const std::string& getName() const;
+
+        void setType(const std::string& type);
+        void setName(const std::string& name);
+
+    protected:
+        std::string name;
+        std::string type;
+};
+
+#endif
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:32 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:18:33 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
+
+#include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
+{
+    public:    
+        WrongCat(void);
+        WrongCat(const std::string& name);
+        WrongCat(const WrongCat& other);
+        WrongCat& operator=(const WrongCat& other);
+        ~WrongCat();
+
+        void makeSound() const;
+
+};
+
+#endif
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:28 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:18:29 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG_HPP
+#define DOG_HPP
+
+#include "Animal.hpp"
+
+class Dog : public Animal
+{
+    public:    
+        Dog(void);
+        Dog(const std::string& name);
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
+        virtual ~Dog();
+
+        virtual void makeSound() const;
+
+};
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:18:23 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 18:13:02 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+
+#include <iostream>
+
+class Animal
+{
+    public:    
+        Animal(void);
+        Animal(const std::string& name);
+        Animal(const Animal& other);
+        Animal& operator=(const Animal& other);
+        virtual ~Animal();
+        
+        virtual void makeSound() const;
+
+        const std::string& getType() const;
+        const std::string& getName() const;
+
+        void setType(const std::string& type);
+        void setName(const std::string& name);
+
+    protected:
+        std::string name;
+        std::string type;
+};
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:45:56 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:27:44 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Dog.hpp"
+
+Dog::Dog(void) : Animal()
+{
+    this->type = "Dog";
+    this->brain = new Brain();
+    std::cout << "Dog default constructor called" << std::endl;
+}
+
+Dog::Dog(const std::string& name) : Animal(name)
+{
+    this->type = "Dog";
+    this->brain = new Brain();
+    std::cout << "Dog constructor called with name: " << this->name << std::endl;
+}
+
+Dog::Dog(const Dog& other) : Animal(other)
+{
+    this->type = "Dog";
+    this->brain = new Brain(*other.brain);
+    std::cout << "Dog copy constructor called for: " << this->name << std::endl;
+}
+
+Dog& Dog::operator=(const Dog& other)
+{
+    if (this != &other)
+    {
+        Animal::operator=(other);
+        delete this->brain;
+        this->brain = new Brain(*other.brain);
+        this->type = "Dog";
+    }       
+    std::cout << "Dog copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Dog::~Dog()
+{
+    delete this->brain;
+    std::cout << "Dog destructor called" << std::endl;
+}
+
+void Dog::makeSound() const
+{
+    std::cout << "Woof! Woof!" << std::endl;
+}
+
+Brain* Dog::getBrain(void) const
+{
+    return this->brain;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:45:52 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:26:45 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Brain.hpp"
+
+Brain::Brain(void)
+{
+    std::cout << "Brain constructor called" << std::endl;
+}
+
+Brain::Brain(const Brain& other)
+{
+    std::cout << "Brain copy constructor called" << std::endl;
+    for (int i = 0; i < 100; i++)
+        this->ideas[i] = other.ideas[i];
+}
+
+Brain& Brain::operator=(const Brain& other)
+{
+    if (this != &other)
+    {
+        for (int i = 0; i < 100; i++)
+            this->ideas[i] = other.ideas[i];
+    }
+    std::cout << "Brain copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Brain::~Brain()
+{
+    std::cout << "Brain destructor called" << std::endl;
+}
+
+void Brain::setIdea(int index, const std::string& idea)
+{
+    if (index >= 0 && index < 100)
+        this->ideas[index] = idea;
+}
+
+const std::string& Brain::getIdea(int index) const
+{
+    static std::string empty = "";
+    if (index >= 0 && index < 100)
+        return this->ideas[index];
+    return empty;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:45:50 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:45:51 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Animal.hpp"
+
+Animal::Animal(void) : name(""), type("")
+{
+    std::cout << "Animal default constructor called" << std::endl;
+}
+
+Animal::Animal(const std::string& name) : name(name), type("")
+{
+    std::cout << "Animal constructor called with name: " << this->name << std::endl;
+}
+
+Animal::Animal(const Animal& other) : name(other.name), type(other.type)
+{
+    std::cout << "Animal copy constructor called for: " << this->name << std::endl;
+}
+
+Animal& Animal::operator=(const Animal& other)
+{
+    if (this != &other)
+    {
+        this->name = other.name;
+        this->type = other.type;
+    }
+    std::cout << "Animal copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Animal::~Animal()
+{
+    std::cout << "Animal destructor called" << std::endl;
+}
+
+const std::string& Animal::getName() const
+{
+    return this->name;
+}
+
+void Animal::setName(const std::string& name)
+{
+    this->name = name;
+}
+
+const std::string& Animal::getType() const
+{
+    return this->type;
+}
+
+void Animal::setType(const std::string& type)
+{
+    this->type = type;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:45:54 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:46:30 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Cat.hpp"
+
+Cat::Cat(void) : Animal()
+{
+    this->type = "Cat";
+    this->brain = new Brain();
+    std::cout << "Cat default constructor called" << std::endl;
+}
+
+Cat::Cat(const std::string& name) : Animal(name)
+{
+    this->type = "Cat";
+    this->brain = new Brain();
+    std::cout << "Cat constructor called with name: " << this->name << std::endl;
+}
+
+Cat::Cat(const Cat& other) : Animal(other)
+{
+    this->type = "Cat";
+    this->brain = new Brain(*other.brain);
+    std::cout << "Cat copy constructor called for: " << this->name << std::endl;
+}
+
+Cat& Cat::operator=(const Cat& other)
+{
+    if (this != &other)
+    {
+        Animal::operator=(other);
+        delete this->brain;
+        this->brain = new Brain(*other.brain);
+        this->type = "Cat";
+    }
+    std::cout << "Cat copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Cat::~Cat()
+{
+    delete this->brain;
+    std::cout << "Cat destructor called" << std::endl;
+}
+
+void Cat::makeSound() const
+{
+    std::cout << "Meow! Meow!" << std::endl;
+}
+
+Brain* Cat::getBrain(void) const
+{
+    return this->brain;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:26 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:42:18 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "includes/Dog.hpp"
+#include "includes/Cat.hpp"
+#include <iostream>
+
+int main()
+{
+    Dog dog("Rex");
+    Cat cat("Whiskers");
+
+    std::cout << dog.getType() << " name: " << dog.getName() << std::endl;
+    std::cout << cat.getType() << " name: " << cat.getName() << std::endl;
+
+    dog.makeSound();
+    cat.makeSound();
+
+    Dog dog1("Buddy");
+    dog1.getBrain()->setIdea(0, "Play fetch");
+
+    Dog dog2 = dog1;
+    dog2.getBrain()->setIdea(0, "Take a nap");
+
+    std::cout << "Dog1 idea: " << dog1.getBrain()->getIdea(0) << std::endl;
+    std::cout << "Dog2 idea: " << dog2.getBrain()->getIdea(0) << std::endl;
+    
+    return 0;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:45:36 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:45:37 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
+
+#include <iostream>
+#include <string>
+
+class Brain
+{
+    public:
+        Brain(void);
+        Brain(const Brain& other);
+        Brain& operator=(const Brain& other);
+        ~Brain();
+
+        void setIdea(int index, const std::string& idea);
+        const std::string& getIdea(int index) const;
+
+    private:
+        std::string ideas[100];
+};
+
+#endif
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:45:38 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:45:39 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CAT_HPP
+#define CAT_HPP
+
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Cat : public Animal
+{
+    public:
+        Cat(void);
+        Cat(const std::string& name);
+        Cat(const Cat& other);
+        Cat& operator=(const Cat& other);
+        virtual ~Cat();
+
+        virtual void makeSound() const;
+
+        Brain* getBrain(void) const;
+
+    private:
+        Brain* brain;
+};
+
+#endif
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:45:40 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:45:41 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG_HPP
+#define DOG_HPP
+
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Dog : public Animal
+{
+    public:
+        Dog(void);
+        Dog(const std::string& name);
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
+        virtual ~Dog();
+
+        virtual void makeSound() const;
+
+        Brain* getBrain(void) const;
+
+    private:
+        Brain* brain;
+};
+
+#endif
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:45:34 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:45:35 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+
+#include <iostream>
+
+class Animal
+{
+    public:
+        Animal(void);
+        Animal(const std::string& name);
+        Animal(const Animal& other);
+        Animal& operator=(const Animal& other);
+        virtual ~Animal();
+
+        virtual void makeSound() const = 0;
+
+        const std::string& getType() const;
+        const std::string& getName() const;
+
+        void setType(const std::string& type);
+        void setName(const std::string& name);
+
+    protected:
+        std::string name;
+        std::string type;
+};
+
+#endif
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:19 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:35:45 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Dog.hpp"
+
+Dog::Dog(void) : AAnimal()
+{
+    this->type = "Dog";
+    this->brain = new Brain();
+    std::cout << "Dog default constructor called" << std::endl;
+}
+
+Dog::Dog(const std::string& name) : AAnimal(name)
+{
+    this->type = "Dog";
+    this->brain = new Brain();
+    std::cout << "Dog constructor called with name: " << this->name << std::endl;
+}
+
+Dog::Dog(const Dog& other) : AAnimal(other)
+{
+    this->type = "Dog";
+    this->brain = new Brain(*other.brain);
+    std::cout << "Dog copy constructor called for: " << this->name << std::endl;
+}
+
+Dog& Dog::operator=(const Dog& other)
+{
+    if (this != &other)
+    {
+        AAnimal::operator=(other);
+        delete this->brain;
+        this->brain = new Brain(*other.brain);
+        this->type = "Dog";
+    }
+    std::cout << "Dog copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Dog::~Dog()
+{
+    delete this->brain;
+    std::cout << "Dog destructor called" << std::endl;
+}
+
+void Dog::makeSound() const
+{
+    std::cout << "Woof! Woof!" << std::endl;
+}
+
+Brain* Dog::getBrain(void) const
+{
+    return this->brain;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:14 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:30:15 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Brain.hpp"
+
+Brain::Brain(void)
+{
+    std::cout << "Brain constructor called" << std::endl;
+}
+
+Brain::Brain(const Brain& other)
+{
+    std::cout << "Brain copy constructor called" << std::endl;
+    for (int i = 0; i < 100; i++)
+        this->ideas[i] = other.ideas[i];
+}
+
+Brain& Brain::operator=(const Brain& other)
+{
+    if (this != &other)
+    {
+        for (int i = 0; i < 100; i++)
+            this->ideas[i] = other.ideas[i];
+    }
+    std::cout << "Brain copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Brain::~Brain()
+{
+    std::cout << "Brain destructor called" << std::endl;
+}
+
+void Brain::setIdea(int index, const std::string& idea)
+{
+    if (index >= 0 && index < 100)
+        this->ideas[index] = idea;
+}
+
+const std::string& Brain::getIdea(int index) const
+{
+    static std::string empty = "";
+    if (index >= 0 && index < 100)
+        return this->ideas[index];
+    return empty;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:12 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:46:13 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/AAnimal.hpp"
+
+AAnimal::AAnimal(void) : name(""), type("")
+{
+    std::cout << "AAnimal default constructor called" << std::endl;
+}
+
+AAnimal::AAnimal(const std::string& name) : name(name), type("")
+{
+    std::cout << "AAnimal constructor called with name: " << this->name << std::endl;
+}
+
+AAnimal::AAnimal(const AAnimal& other) : name(other.name), type(other.type)
+{
+    std::cout << "AAnimal copy constructor called for: " << this->name << std::endl;
+}
+
+AAnimal& AAnimal::operator=(const AAnimal& other)
+{
+    if (this != &other)
+    {
+        this->name = other.name;
+        this->type = other.type;
+    }
+    std::cout << "AAnimal copy assignment operator called" << std::endl;
+    return *this;
+}
+
+AAnimal::~AAnimal()
+{
+    std::cout << "AAnimal destructor called" << std::endl;
+}
+
+const std::string& AAnimal::getName() const
+{
+    return this->name;
+}
+
+void AAnimal::setName(const std::string& name)
+{
+    this->name = name;
+}
+
+const std::string& AAnimal::getType() const
+{
+    return this->type;
+}
+
+void AAnimal::setType(const std::string& type)
+{
+    this->type = type;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:16 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/21 20:31:47 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Cat.hpp"
+
+Cat::Cat(void) : AAnimal()
+{
+    this->type = "Cat";
+    this->brain = new Brain();
+    std::cout << "Cat default constructor called" << std::endl;
+}
+
+Cat::Cat(const std::string& name) : AAnimal(name)
+{
+    this->type = "Cat";
+    this->brain = new Brain();
+    std::cout << "Cat constructor called with name: " << this->name << std::endl;
+}
+
+Cat::Cat(const Cat& other) : AAnimal(other)
+{
+    this->type = "Cat";
+    this->brain = new Brain(*other.brain);
+    std::cout << "Cat copy constructor called for: " << this->name << std::endl;
+}
+
+Cat& Cat::operator=(const Cat& other)
+{
+    if (this != &other)
+    {
+        AAnimal::operator=(other);
+        delete this->brain;
+        this->brain = new Brain(*other.brain);
+        this->type = "Cat";
+    }
+    std::cout << "Cat copy assignment operator called" << std::endl;
+    return *this;
+}
+
+Cat::~Cat()
+{
+    delete this->brain;
+    std::cout << "Cat destructor called" << std::endl;
+}
+
+void Cat::makeSound() const
+{
+    std::cout << "Meow! Meow!" << std::endl;
+}
+
+Brain* Cat::getBrain(void) const
+{
+    return this->brain;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:22 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:56:51 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "includes/Dog.hpp"
+#include "includes/Cat.hpp"
+
+#include <iostream>
+
+int main()
+{
+    Dog dog("Bobby");
+    Cat cat("Whiskers");
+
+    std::cout << "Dog: " << dog.getType() << std::endl;
+    dog.makeSound();
+
+    std::cout << "\nCat: " << cat.getType() << std::endl;
+    cat.makeSound();
+
+    return 0;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:04 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:53:09 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
+
+#include <iostream>
+
+class Brain
+{
+    public:
+        Brain(void);
+        Brain(const Brain& other);
+        Brain& operator=(const Brain& other);
+        ~Brain();
+
+        void setIdea(int index, const std::string& idea);
+        const std::string& getIdea(int index) const;
+
+    private:
+        std::string ideas[100];
+};
+
+#endif
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:02 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:46:03 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef AANIMAL_HPP
+#define AANIMAL_HPP
+
+#include <iostream>
+
+class AAnimal
+{
+    public:
+        AAnimal(void);
+        AAnimal(const std::string& name);
+        AAnimal(const AAnimal& other);
+        AAnimal& operator=(const AAnimal& other);
+        virtual ~AAnimal();
+
+        virtual void makeSound() const = 0;
+
+        const std::string& getType() const;
+        const std::string& getName() const;
+
+        void setType(const std::string& type);
+        void setName(const std::string& name);
+
+    protected:
+        std::string name;
+        std::string type;
+};
+
+#endif
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:07 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:46:08 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CAT_HPP
+#define CAT_HPP
+
+#include "AAnimal.hpp"
+#include "Brain.hpp"
+
+class Cat : public AAnimal
+{
+    public:
+        Cat(void);
+        Cat(const std::string& name);
+        Cat(const Cat& other);
+        Cat& operator=(const Cat& other);
+        virtual ~Cat();
+
+        virtual void makeSound() const;
+
+        Brain* getBrain(void) const;
+
+    private:
+        Brain* brain;
+};
+
+#endif
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 16:46:10 by gustavo-lin       #+#    #+#             */
+/*   Updated: 2026/03/19 16:46:11 by gustavo-lin      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG_HPP
+#define DOG_HPP
+
+#include "AAnimal.hpp"
+#include "Brain.hpp"
+
+class Dog : public AAnimal
+{
+    public:
+        Dog(void);
+        Dog(const std::string& name);
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
+        virtual ~Dog();
+
+        virtual void makeSound() const;
+
+        Brain* getBrain(void) const;
+
+    private:
+        Brain* brain;
+};
+
+#endif

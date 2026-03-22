@@ -6,7 +6,7 @@
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 16:18:43 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 16:18:44 by gustavo-lin      ###   ########.fr       */
+/*   Updated: 2026/03/21 20:26:15 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other) {
-    WrongAnimal::operator=(other);
-    this->type = "WrongCat";
+    if (this != &other)
+    {
+        WrongAnimal::operator=(other);
+        this->type = "WrongCat";
+    }
     std::cout << "WrongCat copy assignment operator called" << std::endl;
     return *this;
 }

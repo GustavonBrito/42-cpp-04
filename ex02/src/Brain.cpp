@@ -6,7 +6,7 @@
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 16:46:14 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 16:46:15 by gustavo-lin      ###   ########.fr       */
+/*   Updated: 2026/03/21 20:30:15 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ Brain::Brain(const Brain& other)
 
 Brain& Brain::operator=(const Brain& other)
 {
-    std::cout << "Brain copy assignment operator called" << std::endl;
     if (this != &other)
     {
         for (int i = 0; i < 100; i++)
             this->ideas[i] = other.ideas[i];
     }
+    std::cout << "Brain copy assignment operator called" << std::endl;
     return *this;
 }
 

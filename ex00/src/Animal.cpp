@@ -6,7 +6,7 @@
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 16:18:35 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 16:18:36 by gustavo-lin      ###   ########.fr       */
+/*   Updated: 2026/03/21 18:13:13 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ Animal& Animal::operator=(const Animal& other) {
 
 Animal::~Animal() {
     std::cout << "Animal destructor called" << std::endl;
+}
+
+void Animal::makeSound(void) const
+{
+    std::cout << "Generic sound" << std::endl;
 }
 
 const std::string& Animal::getName() const {

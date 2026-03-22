@@ -6,7 +6,7 @@
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 16:18:23 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 16:18:24 by gustavo-lin      ###   ########.fr       */
+/*   Updated: 2026/03/21 18:13:02 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Animal
         Animal& operator=(const Animal& other);
         virtual ~Animal();
         
-        virtual void makeSound() const = 0;
+        virtual void makeSound() const;
 
         const std::string& getType() const;
         const std::string& getName() const;

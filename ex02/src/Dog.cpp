@@ -6,7 +6,7 @@
 /*   By: gustavo-linux <gustavo-linux@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 16:46:19 by gustavo-lin       #+#    #+#             */
-/*   Updated: 2026/03/19 16:46:20 by gustavo-lin      ###   ########.fr       */
+/*   Updated: 2026/03/21 20:35:45 by gustavo-lin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ Dog::Dog(const Dog& other) : AAnimal(other)
 
 Dog& Dog::operator=(const Dog& other)
 {
-    AAnimal::operator=(other);
-    if (this->brain)
+    if (this != &other)
+    {
+        AAnimal::operator=(other);
         delete this->brain;
-    this->brain = new Brain(*other.brain);
-    this->type = "Dog";
+        this->brain = new Brain(*other.brain);
+        this->type = "Dog";
+    }
     std::cout << "Dog copy assignment operator called" << std::endl;
     return *this;
 }
